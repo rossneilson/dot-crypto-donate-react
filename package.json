@@ -1,0 +1,33 @@
+{
+  "name": "dot-crypto-donate-react",
+  "version": "0.1.0",
+  "description": "React component to pull addresses from unstoppable domains .crypto contract on ethereum and allow donations to addresses found",
+  "scripts": {
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",
+    "test": "echo \"Error: no test specified\""
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "ethers": "^5.1.4",
+    "js-sha3": "^0.8.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git-remote-url"
+  },
+  "author": "rossneilson",
+  "keywords": ["crypto", "donate", "unstoppable domains", "react", "components", "ui"],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [ "dist", "README.md" ],
+  "license": "MIT"
+}
