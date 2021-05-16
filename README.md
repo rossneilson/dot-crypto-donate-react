@@ -3,12 +3,11 @@
 
 A react component that takes in a .crypto domain name and allows for donations to be sent to addresses associated with the domain.
 
+Component gets contract 0xa6E7cEf2EDDEA66352Fd68E5915b60BDbb7309f5 on ethereum mainnet and calls getData function.
+
 If you want to add more currencies or other improvements please feel free to raise a PR. Or add examples to the readme.
 
-
-<img src="/example.png" width="300"/>
-
-<img src="/example2.png" width="300"/>
+<img src="https://github.com/rossneilson/dot-crypto-donate-react/blob/master/example.png" width="300"/>
 
 ## Features 
 * Simply add .crypto domain name as prop to get all addresses

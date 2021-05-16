@@ -97,6 +97,12 @@ async function donateWithEther(address, amount) {
       };
     }
 
+    if (!window.ethereum) {
+      throw {
+        message: "No wallet found, please install metamask"
+      };
+    }
+
     const provider = new _ethers.ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     return signer.sendTransaction({
