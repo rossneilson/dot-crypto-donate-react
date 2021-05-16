@@ -7,13 +7,13 @@ If you want to add more currencies or other improvements please feel free to rai
 
 ## Features 
 * Simply add .crypto domain name as prop to get all addresses
-* Web3 (ethers.js) integration for automatic payments via ethereum wallet ([metaMask](https://metamask.io), etc)
+* Web3 (ethers.js) integration for automatic payments via ethereum wallet ([metamask](https://metamask.io), etc)
 * Currently only supports ETH and BTC (main functionality for ETH)
 * If successful links to transaction on [etherscan](https://etherscan.io)
 * Customizable colours and text
 * MIT License - completely open source to do with as you please
 
-## Pre-requisites / Requirements
+## Requirements
 * Purchase, claim and add addresses to (unstoppable domains)[https://unstoppabledomains.com/]
 * Create free infura account at (infura.io)[https://infura.io/] then add project key as prop
 
