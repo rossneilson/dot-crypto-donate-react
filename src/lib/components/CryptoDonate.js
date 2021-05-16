@@ -45,7 +45,6 @@ const DonateButton = styled.button`
   background-color: ${(props) => props.colors.button};
   color: ${(props) => props.colors.text};
   justify-content: space-around;
-  font-size: ${(props) => props.theme.fontSizes.r};
   font-weight: 500;
   border: none;
   cursor: pointer;
@@ -54,10 +53,10 @@ const DonateButton = styled.button`
   border-radius: 0px 5px 5px 0px;
   width: 30%;
   &:hover {
-    background-color: ${(props) => props.theme.colors.buttonHoverColor};
+    background-color: ${(props) => props.colors.buttonSecondary};
   }
   &:focus {
-    background-color: ${(props) => props.theme.colors.buttonHoverColor};
+    background-color: ${(props) => props.colors.buttonSecondary};
   }
 `;
 

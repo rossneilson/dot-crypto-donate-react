@@ -1,6 +1,6 @@
 {
   "name": "dot-crypto-donate-react",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React component to pull addresses from unstoppable domains .crypto contract on ethereum and allow donations to addresses found",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files",

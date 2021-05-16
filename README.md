@@ -5,6 +5,11 @@ A react component that takes in a .crypto domain name and allows for donations t
 
 If you want to add more currencies or other improvements please feel free to raise a PR. Or add examples to the readme.
 
+
+<img src="/example.png" width="300"/>
+
+<img src="/example2.png" width="300"/>
+
 ## Features 
 * Simply add .crypto domain name as prop to get all addresses
 * Web3 (ethers.js) integration for automatic payments via ethereum wallet ([metamask](https://metamask.io), etc)
@@ -46,6 +51,7 @@ import CryptoDonate from "dot-crypto-donate-react"
     primary: "#2096f3",
     secondary: "#fde199",
     button: "#1a78c2",
+    buttonSecondary: "#fab601",
     text: "#ffffff",
   }}
   text={{
