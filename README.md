@@ -5,7 +5,9 @@ A react component that takes in a .crypto domain name and allows for donations t
 
 Component gets contract 0xa6E7cEf2EDDEA66352Fd68E5915b60BDbb7309f5 on ethereum mainnet and calls getData function.
 
-If you want to add more currencies or other improvements please feel free to raise a PR. Or add examples to the readme.
+If you want to add more currencies or other improvements please feel free to raise a PR. 
+
+If you use the package please update the examples section of the readme, thanks.
 
 <img src="https://github.com/rossneilson/dot-crypto-donate-react/blob/master/example.png" width="300"/>
 
@@ -18,8 +20,8 @@ If you want to add more currencies or other improvements please feel free to rai
 * MIT License - completely open source to do with as you please
 
 ## Requirements
-* Purchase, claim and add addresses to (unstoppable domains)[https://unstoppabledomains.com/]
-* Create free infura account at (infura.io)[https://infura.io/] then add project key as prop
+* Purchase, claim and add addresses to [unstoppable domains](https://unstoppabledomains.com/)
+* Create free infura account at [infura.io](https://infura.io/) then add project key as prop
 
 ## Examples 
 [rossneilson.dev (bottom of site)](https://rossneilson.dev)

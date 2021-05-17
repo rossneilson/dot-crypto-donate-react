@@ -103,6 +103,7 @@ async function donateWithEther(address, amount) {
       };
     }
 
+    await window.ethereum.enable();
     const provider = new _ethers.ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     return signer.sendTransaction({
