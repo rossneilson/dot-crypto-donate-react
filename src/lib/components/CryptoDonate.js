@@ -31,12 +31,14 @@ const CcySelector = styled.select`
   margin: auto 0px;
   height: 50px;
 `;
+
 const AmountInput = styled.input`
   border: 0px solid #fffbfb;
   background-color: ${(props) => props.colors.primary};
   color: ${(props) => props.colors.text};
   height: 50px;
-  width: 70%;
+  width: 60%;
+  border-radius: 0px;
 `;
 
 const DonateButton = styled.button`
@@ -51,7 +53,7 @@ const DonateButton = styled.button`
   border-radius: 5px;
   margin: auto;
   border-radius: 0px 5px 5px 0px;
-  width: 30%;
+  width: 40%;
   &:hover {
     background-color: ${(props) => props.colors.buttonSecondary};
   }
