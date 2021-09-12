@@ -44,6 +44,13 @@ import CryptoDonate from "dot-crypto-donate-react"
 
 **Use**
 
+Params
+cryptoDomain - Unstoppable domains .crypto domain that addresses are pulled from
+infuraApi = RPC API ID used to communicate with the ethereum blockchain (free to create)
+colors = Object to input custom colours for component
+text = Object to input text to be displayed in component
+ens (optional) = ENS domain that can be added optionally to the component
+
 ```
 <CryptoDonate
   cryptoDomain="<insert-domain>.crypto"

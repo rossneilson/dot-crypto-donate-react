@@ -78,14 +78,15 @@ const abi = [{
   type: "function"
 }]; // Todo - Add more ccy and make parameter
 
-const ccys = ["BTC", "ETH"];
+const ccys = ["crypto.BTC.address", "crypto.ETH.address"];
+const ccysIds = ["BTC", "ETH"];
 
 async function fetchContractData(cryptoDomain, infuraApi) {
   const provider = new _ethers.ethers.providers.InfuraProvider("homestead", infuraApi);
   const contract = new _ethers.ethers.Contract(address, abi, provider);
   const result = {};
   const contractData = await contract.getData(keys, nameHash(cryptoDomain));
-  contractData.forEach((address, index) => result[ccys[index]] = address);
+  contractData[2].forEach((address, index) => result[ccysIds[index]] = address);
   return result;
 }
 

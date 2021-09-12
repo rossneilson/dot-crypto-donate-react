@@ -23,6 +23,12 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 const Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  width: 100%;\n  margin-top: 50px;\n"])));
@@ -33,9 +39,9 @@ const Input = _styledComponents.default.section(_templateObject3 || (_templateOb
 
 const CcySelector = _styledComponents.default.select(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  border: 0px solid #fff;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 5px 0px 0px 5px;\n  margin: auto 0px;\n  height: 50px;\n"])), props => props.colors.primary, props => props.colors.text);
 
-const AmountInput = _styledComponents.default.input(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  border: 0px solid #fffbfb;\n  background-color: ", ";\n  color: ", ";\n  height: 50px;\n  width: 70%;\n"])), props => props.colors.primary, props => props.colors.text);
+const AmountInput = _styledComponents.default.input(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  border: 0px solid #fffbfb;\n  background-color: ", ";\n  color: ", ";\n  height: 50px;\n  width: 60%;\n  border-radius: 0px;\n"])), props => props.colors.primary, props => props.colors.text);
 
-const DonateButton = _styledComponents.default.button(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  transition: 0.2s;\n  height: 50px;\n  background-color: ", ";\n  color: ", ";\n  justify-content: space-around;\n  font-weight: 500;\n  border: none;\n  cursor: pointer;\n  border-radius: 5px;\n  margin: auto;\n  border-radius: 0px 5px 5px 0px;\n  width: 30%;\n  &:hover {\n    background-color: ", ";\n  }\n  &:focus {\n    background-color: ", ";\n  }\n"])), props => props.colors.button, props => props.colors.text, props => props.colors.buttonSecondary, props => props.colors.buttonSecondary);
+const DonateButton = _styledComponents.default.button(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  transition: 0.2s;\n  height: 50px;\n  background-color: ", ";\n  color: ", ";\n  justify-content: space-around;\n  font-weight: 500;\n  border: none;\n  cursor: pointer;\n  border-radius: 5px;\n  margin: auto;\n  border-radius: 0px 5px 5px 0px;\n  width: 40%;\n  &:hover {\n    background-color: ", ";\n  }\n  &:focus {\n    background-color: ", ";\n  }\n"])), props => props.colors.button, props => props.colors.text, props => props.colors.buttonSecondary, props => props.colors.buttonSecondary);
 
 const Output = _styledComponents.default.section(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  width: 100%;\n  margin: auto;\n  padding: 2%;\n  background-color: ", ";\n"])), props => props.error ? "#f7b7ad" : "#cfebdf");
 
@@ -44,7 +50,8 @@ function CryptoDonate(_ref) {
     cryptoDomain,
     infuraApi,
     colors,
-    text
+    text,
+    ens = null
   } = _ref;
   const [addressBook, setAddressBook] = (0, _react.useState)({});
   const [selectedCcy, setSelectedCcy] = (0, _react.useState)("ETH");
@@ -53,7 +60,9 @@ function CryptoDonate(_ref) {
   const [amount, setAmount] = (0, _react.useState)("0.0");
   (0, _react.useEffect)(() => {
     async function fetchAddresses() {
-      setAddressBook(await (0, _ether.fetchContractData)(cryptoDomain, infuraApi));
+      setAddressBook(_objectSpread(_objectSpread({}, await (0, _ether.fetchContractData)(cryptoDomain, infuraApi)), {}, {
+        ENS: ens
+      }));
     }
 
     fetchAddresses();
@@ -87,7 +96,9 @@ function CryptoDonate(_ref) {
     colors: colors
   }, /*#__PURE__*/_react.default.createElement("option", {
     value: "ETH"
-  }, "ETH"), /*#__PURE__*/_react.default.createElement("option", {
+  }, "ETH"), ens ? /*#__PURE__*/_react.default.createElement("option", {
+    value: "ENS"
+  }, "ENS") : null, /*#__PURE__*/_react.default.createElement("option", {
     value: "BTC"
   }, "BTC")), selectedCcy === "ETH" ? /*#__PURE__*/_react.default.createElement(Input, {
     colors: colors

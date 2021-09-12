@@ -74,6 +74,7 @@ export default function CryptoDonate({
   infuraApi,
   colors,
   text,
+  ens = null,
 }) {
   const [addressBook, setAddressBook] = useState({});
   const [selectedCcy, setSelectedCcy] = useState("ETH");
@@ -83,7 +84,10 @@ export default function CryptoDonate({
 
   useEffect(() => {
     async function fetchAddresses() {
-      setAddressBook(await fetchContractData(cryptoDomain, infuraApi));
+      setAddressBook({
+        ...(await fetchContractData(cryptoDomain, infuraApi)),
+        ENS: ens,
+      });
     }
     fetchAddresses();
   }, []);
@@ -112,6 +116,7 @@ export default function CryptoDonate({
           colors={colors}
         >
           <option value="ETH">ETH</option>
+          {ens ? <option value="ENS">ENS</option> : null}
           <option value="BTC">BTC</option>
         </CcySelector>
         {selectedCcy === "ETH" ? (
